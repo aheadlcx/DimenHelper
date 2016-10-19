@@ -42,11 +42,7 @@ public class MainAction extends BaseGenerateAction {
 
     @Override
     public void actionPerformed(AnActionEvent anActionEvent) {
-        project = anActionEvent.getProject();
-        Editor editor = anActionEvent.getData(PlatformDataKeys.EDITOR);
-        PsiFile psiFile = PsiUtilBase.getPsiFileInEditor(editor, project);
-        String canonicalPath = psiFile.getVirtualFile().getCanonicalPath();
-        System.out.println("current path is ============ " + canonicalPath);
+        String canonicalPath = getCurFilePath(anActionEvent);
 
         File file = new File(canonicalPath);
         List<OriginDimen> originDimens = null;
@@ -70,7 +66,6 @@ public class MainAction extends BaseGenerateAction {
         } else {
             firstOutput = baseFile.getCanonicalPath();
         }
-        System.out.println("firstOutput  is ============ " + firstOutput);
 
         List<OutValues> outValues = OutUtils.getOutValues();
         for (int i = 0; i < outValues.size(); i++) {
@@ -82,6 +77,13 @@ public class MainAction extends BaseGenerateAction {
                 e.printStackTrace();
             }
         }
+    }
+
+    private String getCurFilePath(AnActionEvent anActionEvent) {
+        project = anActionEvent.getProject();
+        Editor editor = anActionEvent.getData(PlatformDataKeys.EDITOR);
+        PsiFile psiFile = PsiUtilBase.getPsiFileInEditor(editor, project);
+        return psiFile.getVirtualFile().getCanonicalPath();
     }
 
     private List<OriginDimen> domXml(InputStream inputStream) {
@@ -124,8 +126,16 @@ public class MainAction extends BaseGenerateAction {
     public void update(AnActionEvent e) {
         super.update(e);
         Presentation presentation = e.getPresentation();
-        presentation.setVisible(true);
-        presentation.setEnabled(true);
+
+        String curFilePath = getCurFilePath(e);
+        System.out.println("curFilePath = " + curFilePath);
+        if (curFilePath == null || !curFilePath.contains("xml")) {
+            presentation.setEnabled(false);
+            presentation.setVisible(false);
+        } else {
+            presentation.setVisible(true);
+            presentation.setEnabled(true);
+        }
     }
 
     private String getOutputPath(VirtualFile[] virtualFiles) {

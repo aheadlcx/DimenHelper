@@ -22,17 +22,17 @@ public class Utils {
         int indexOf;
         if (isDp(value)) {
             if (value.contains("d")) {
-                indexOf = value.indexOf("d");
+                indexOf = value.lastIndexOf("d");
                 originDimen.setSuffix("dp");
             } else {
                 originDimen.setSuffix("sp");
-                indexOf = value.indexOf("s");
+                indexOf = value.lastIndexOf("sp");
             }
-            floatValue = Float.valueOf(value.substring(0, indexOf + 1));
+            floatValue = Float.valueOf(value.substring(0, indexOf ));
 
         }else {
-            indexOf = value.indexOf("p");
-            floatValue = Float.valueOf(value.substring(0, indexOf + 1));
+            indexOf = value.lastIndexOf("px");
+            floatValue = Float.valueOf(value.substring(0, indexOf ));
             originDimen.setSuffix("px");
         }
 

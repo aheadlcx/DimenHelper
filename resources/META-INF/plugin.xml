@@ -1,19 +1,19 @@
 <idea-plugin version="2">
   <id>me.aheadlcx.dimenhelper</id>
   <name>DimenHelper</name>
-  <version>1.0</version>
-  <vendor email="aheadlcxzhang@gmail.com" url="www.aheadlcx.top">aheadlcx</vendor>
+  <version>1.1</version>
+  <vendor email="aheadlcxzhang@gmail.com" url="https://github.com/aheadlcx/DimenHelper">aheadlcx</vendor>
 
   <description><![CDATA[
-      create other value dimen file by your current dimen file.<br>
-      <em>most HTML tags may be used</em>
+      create others value dimen file by your current dimen file.<br>
     ]]></description>
+  <!--<em>Android TV dimen</em>-->
 
   <change-notes><![CDATA[
-      Add change notes here.<br>
-      <em>most HTML tags may be used</em>
+      Fix bug.<br>
     ]]>
   </change-notes>
+  <!--<em>most HTML tags may be used</em>-->
 
   <!-- please see http://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/build_number_ranges.html for description -->
   <idea-version since-build="1.0"/>
@@ -34,8 +34,6 @@
             text="DimenHelper"
     >
       <add-to-group group-id="ToolsMenu" anchor="first"></add-to-group>
-      <add-to-group group-id="XmlGenerateToolsGroup" anchor="first"></add-to-group>
-      <add-to-group group-id="ToolsXmlGroup" anchor="first"></add-to-group>
       <keyboard-shortcut first-keystroke="$default" keymap="alt s"></keyboard-shortcut>
     </action>
   </actions>
