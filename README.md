@@ -8,3 +8,8 @@
 + 打开现有的 dimen 文件。
 + 打开 as 菜单栏 Tools 选择 DimenHelper 。
 + 此时，事实上已经生成好对应的 dimen 文件了。可是 as 并不会马上刷新，可以自行点击 res 缩放一下 res 文件夹，再次打开即可看到新生成的 dimen 文件。
+
+
+### Thanks
+[yann9](https://github.com/yann9/DimenGenerator)
+[succlz123](https://github.com/succlz123/AndroidPixelDimenGenerator)
