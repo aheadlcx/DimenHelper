@@ -1,7 +1,7 @@
 <idea-plugin version="2">
   <id>me.aheadlcx.dimenhelper</id>
   <name>DimenHelper</name>
-  <version>1.1</version>
+  <version>1.2</version>
   <vendor email="aheadlcxzhang@gmail.com" url="https://github.com/aheadlcx/DimenHelper">aheadlcx</vendor>
 
   <description><![CDATA[
@@ -10,7 +10,7 @@
   <!--<em>Android TV dimen</em>-->
 
   <change-notes><![CDATA[
-      Fix bug.<br>
+      refresh the file when file have benn created<br>
     ]]>
   </change-notes>
   <!--<em>most HTML tags may be used</em>-->

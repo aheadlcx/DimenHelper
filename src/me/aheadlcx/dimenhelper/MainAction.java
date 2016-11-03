@@ -77,6 +77,10 @@ public class MainAction extends BaseGenerateAction {
                 e.printStackTrace();
             }
         }
+//        String projectbuildFilePath = "";
+//        VirtualFile vf = LocalFileSystem.getInstance().findFileByIoFile(new File(projectbuildFilePath));
+//        vf.refresh(true, false);
+        baseFile.refresh(true, false);
     }
 
     private String getCurFilePath(AnActionEvent anActionEvent) {
