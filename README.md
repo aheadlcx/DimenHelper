@@ -10,6 +10,12 @@
 + 此时，事实上已经生成好对应的 dimen 文件了。可是 as 并不会马上刷新，可以自行点击 res 缩放一下 res 文件夹，再次打开即可看到新生成的 dimen 文件。
 
 
+## Usage
++ install plugin 
++ select your dimen file
++ open tools menu and click DimenHelper button
++ now the other dimen file have been created
+
 ### Thanks
 [yann9](https://github.com/yann9/DimenGenerator)
 [succlz123](https://github.com/succlz123/AndroidPixelDimenGenerator)
