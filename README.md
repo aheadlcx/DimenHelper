@@ -16,6 +16,8 @@
 + open tools menu and click DimenHelper button
 + now the other dimen file have been created
 
+![](https://raw.githubusercontent.com/aheadlcx/DimenHelper/master/sample.png)
+
 ### Thanks
 [yann9](https://github.com/yann9/DimenGenerator)
 [succlz123](https://github.com/succlz123/AndroidPixelDimenGenerator)
