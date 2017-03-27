@@ -13,6 +13,7 @@ import com.intellij.psi.PsiFile;
 import com.intellij.psi.util.PsiUtilBase;
 import me.aheadlcx.dimenhelper.out.OutUtils;
 import me.aheadlcx.dimenhelper.out.OutValues;
+import org.apache.http.util.TextUtils;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import org.w3c.dom.Document;
@@ -43,7 +44,9 @@ public class MainAction extends BaseGenerateAction {
     @Override
     public void actionPerformed(AnActionEvent anActionEvent) {
         String canonicalPath = getCurFilePath(anActionEvent);
-
+        if (TextUtils.isEmpty(canonicalPath)){
+            return;
+        }
         File file = new File(canonicalPath);
         List<OriginDimen> originDimens = null;
         try {
@@ -129,16 +132,21 @@ public class MainAction extends BaseGenerateAction {
     @Override
     public void update(AnActionEvent e) {
         super.update(e);
-        Presentation presentation = e.getPresentation();
-
-        String curFilePath = getCurFilePath(e);
-        System.out.println("curFilePath = " + curFilePath);
-        if (curFilePath == null || !curFilePath.contains("xml")) {
-            presentation.setEnabled(false);
-            presentation.setVisible(false);
-        } else {
-            presentation.setVisible(true);
-            presentation.setEnabled(true);
+        try {
+            Presentation presentation = e.getPresentation();
+            if (presentation == null)return;
+            String curFilePath = getCurFilePath(e);
+            System.out.println("curFilePath = " + curFilePath);
+            if (curFilePath == null || !curFilePath.contains("xml")) {
+                presentation.setEnabled(false);
+                presentation.setVisible(false);
+            } else if (presentation != null){
+                presentation.setVisible(true);
+                presentation.setEnabled(true);
+            }
+        } catch (Exception e1) {
+            System.out.println("error  = " + e1.getMessage());
+            e1.printStackTrace();
         }
     }
 
